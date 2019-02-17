@@ -1,5 +1,8 @@
 const formData = {
-    "#summary": "Credit WebApp Deployment(Credit Card frontend deployment)",
+    "#summary": {
+        'type': 'value',
+        'content': 'Credit WebApp Deployment(Credit Card frontend deployment)'
+    },
     "#description": {
         'type': 'value',
         'content': `

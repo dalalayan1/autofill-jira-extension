@@ -4,16 +4,12 @@ chrome.runtime.onMessage.addListener(function(request, sender,   sendResponse) {
     
 
     for(var key in data) {
-        if(typeof data[key] === "object") {
-            if (data[key]["type"] === 'submit') {
-                document.querySelector(key).click();
-            }
-            else {
-                document.querySelector(key)[data[key]["type"]] = data[key]["content"];
-            }
+        if (data[key]["type"] === 'submit') {
+            document.querySelector(key).click();
+            // sendResponse({statusText: "Creating ticket..."})
         }
         else {
-            document.querySelector(key).value = data[key];
+            document.querySelector(key)[data[key]["type"]] = data[key]["content"];
         }
     }
 

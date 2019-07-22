@@ -42,10 +42,14 @@ const formData = {
 window.onload=function(){
 
     document.getElementById('submitForm').addEventListener('click',function(){
-        formData["#customfield_11610"] =  document.getElementById("current_version").value;
-        formData["#customfield_11611"] = document.getElementById("rollback_version").value;
+        
+        formData["#customfield_11610"] =  document.getElementById("current_version").value || formData["#customfield_11610"];
+        formData["#customfield_11611"] = document.getElementById("rollback_version").value || formData["#customfield_11610"];
+
         chrome.tabs.query({currentWindow: true, active: true}, function(tabs) {
+
             chrome.tabs.sendMessage(tabs[0].id, {data: formData});
+
         }); 
    
     });

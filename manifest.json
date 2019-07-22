@@ -1,0 +1,17 @@
+{
+    "name": "autofll-jira",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "permissions": [
+        "tabs", "<all_urls>"
+    ],
+    "browser_action": {
+        "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://jira.corp.olacabs.com/secure/CreateIssue*"],
+            "js": ["action.js"]
+        }
+    ]
+}

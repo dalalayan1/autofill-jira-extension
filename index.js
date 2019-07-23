@@ -81,5 +81,7 @@ const formData = {
 // }
 
 chrome.browserAction.onClicked.addListener(function(currTab){
+    console.log("INFO ABOUT CURRENT TAB :");
+    console.log(currTab);
     chrome.tabs.sendMessage(currTab.id, {data: formData});
 });
